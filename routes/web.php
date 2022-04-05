@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,13 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Admin User Auth
+Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm');
+Route::post('admin/login','Auth\AdminLoginController@login')-> name('admin.login');
+Route::post('admin/logout','Auth\AdminLoginController@logout')-> name('admin.logout');
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('admin/login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->name('admin.')->namespace('Backend')->middleware('auth:admin_user')->group(function(){
 
-echo "hello";
+});
