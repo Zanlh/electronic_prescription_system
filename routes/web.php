@@ -25,5 +25,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('admin')->name('admin.')->namespace('Backend')->middleware('auth:admin_user')->group(function(){
+    Route::get('/' , 'AdminUserController@home' ) -> name('home');
 
 });

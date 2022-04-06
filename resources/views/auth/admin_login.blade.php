@@ -3,7 +3,7 @@
 <div class="login">
     <div class="center">
         <h1>RSA Admin Panel</h1>
-        <form action="#" method="POST">
+        <form action="{{route('admin.login')}}" method="POST">
             @csrf
             <div class="txt_field">
                 <input type="email" name="email"  id="email" autofocus required>

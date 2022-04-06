@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
 {
-    //
+    public function home(){
+        return view('home');
+    }
 }
