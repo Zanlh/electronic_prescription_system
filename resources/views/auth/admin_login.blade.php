@@ -15,7 +15,7 @@
                 <span></span>
                 <label for="password">Password</label>
             </div>
-            <div class="pass">Forgot password?
+            <div class="pass">Email:csit314@uow.com :: password:123123123
             </div>
             <button type="submit" class="button" >Login</button>
             <div class="signup_link">
