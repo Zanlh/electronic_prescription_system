@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Laravel\Passport\HasApiTokens;
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Mechanic extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
@@ -29,15 +28,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    
 }

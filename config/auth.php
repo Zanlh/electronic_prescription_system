@@ -46,10 +46,14 @@ return [
             'provider' => 'admin_users'
         ],
 
+        'mechanic'=>[
+            'driver'=>'session',
+            'provider'=>'mechanics'
+        ],
+
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
-            'hash' => false,
         ],
     ],
 
@@ -78,6 +82,10 @@ return [
         'admin_users' => [
             'driver' => 'eloquent',
             'model' => App\Models\AdminUser::class,
+        ],
+        'mechanics' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mechanic::class,
         ],
 
         // 'users' => [
