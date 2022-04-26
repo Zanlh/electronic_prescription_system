@@ -53,7 +53,7 @@
                             <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                         </svg>
                     </span>
-                    <span class="sidebar-text">Dashboard</span>
+                    <span class="sidebar-text">Home</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -117,12 +117,12 @@
 
             <li class="nav-item">
                 <span class="nav-link  collapsed  d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#submenu-restaurant">
+                    data-bs-toggle="collapse" data-bs-target="#submenu-report">
                     <span>
                         <span class="sidebar-icon">
                             <i class="icon icon-xs me-2 fas fa-store"></i>
                         </span>
-                        <span class="sidebar-text">Restaurant <br><div class="pl-10" style="padding-left: 40px;">Management</div></span>
+                        <span class="sidebar-text">Generate<br><div class="pl-10" style="padding-left: 40px;">Reports</div></span>
                     </span>
                     <span class="link-arrow">
                         <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
@@ -133,29 +133,20 @@
                         </svg>
                     </span>
                 </span>
-                <div class="multi-level collapse " role="list" id="submenu-restaurant" aria-expanded="false">
+                <div class="multi-level collapse " role="list" id="submenu-report" aria-expanded="false">
                     <ul class="flex-column nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-                                <span class="sidebar-text">Restaurants</span>
+                                <span class="sidebar-text">Payment</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="multi-level collapse " role="list" id="submenu-restaurant" aria-expanded="false">
+                <div class="multi-level collapse " role="list" id="submenu-report" aria-expanded="false">
                     <ul class="flex-column nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-                                <span class="sidebar-text">Orders</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="multi-level collapse " role="list" id="submenu-restaurant" aria-expanded="false">
-                    <ul class="flex-column nav">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-                                <span class="sidebar-text">Menu</span>
+                                <span class="sidebar-text">Service</span>
                             </a>
                         </li>
                     </ul>
