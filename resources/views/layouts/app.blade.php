@@ -22,6 +22,8 @@
     {{-- Bootstrap CSS --}}
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+    {{-- Data table --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">္္
     {{-- Default CSS --}}
 </head>
 
@@ -47,7 +49,8 @@
             <div class="row">
                 <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
                     <p class="mb-0 text-center text-lg-start">© <span class="current-year"></span> <a
-                            class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Better Dinner</a>
+                            class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Better
+                            Dinner</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
@@ -72,29 +75,32 @@
     </main>
 
     <!-- Core -->
-     {{-- Bootstrap JS & Jquery --}}
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
- <script src="{{ asset('backend/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
- <script src="{{ asset('backend/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {{-- Bootstrap JS & Jquery --}}
+
+    <script src="{{ asset('backend/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js">
+    </script>
     <script>
         $(document).ready(function() {
-                    let token = document.head.querySelector('meta[name = "csrf-token"]');
-                    if (token) {
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF_TOKEN': token.content
-                            }
-                        });
+            let token = document.head.querySelector('meta[name = "csrf-token"]');
+            if (token) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF_TOKEN': token.content
                     }
-
-                    $('.back-btn').on('click', function() {
-                        window.history.go(-1);
-                        return false;
-                    });
                 });
+            }
+
+            $('.back-btn').on('click', function() {
+                window.history.go(-1);
+                return false;
+            });
+        });
     </script>
-   
+
     <!-- Vendor JS -->
     <script src="{{ asset('backend/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
 

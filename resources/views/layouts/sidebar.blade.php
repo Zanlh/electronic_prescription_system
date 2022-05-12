@@ -106,7 +106,7 @@
                 <div class="multi-level collapse " role="list" id="submenu-user" aria-expanded="false">
                     <ul class="flex-column nav">
                         <li class="nav-item ">
-                            <a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
+                            <a class="nav-link" href="{{route('admin.user.index')}}">
                                 <span class="sidebar-text">User</span>
                             </a>
                         </li>
