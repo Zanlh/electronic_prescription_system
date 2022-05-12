@@ -2,7 +2,7 @@
 
 <div class="login">
     <div class="center">
-        <h1>RSA Admin Panel</h1>
+        <h1>EPS Admin Panel</h1>
         <form action="{{route('admin.login')}}" method="POST">
             @csrf
             <div class="txt_field">
@@ -15,7 +15,7 @@
                 <span></span>
                 <label for="password">Password</label>
             </div>
-            <div class="pass">Email:csit314@uow.com password:123123123
+            <div class="pass">Email:csci334@uow.com password:123123123
             </div>
             <button type="submit" class="button" >Login</button>
             <div class="signup_link">

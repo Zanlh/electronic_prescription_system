@@ -14,30 +14,21 @@ class AuthController extends Controller
     {
         $request->validate(
             [
-                'firstname' => ['required', 'string', 'max:255'],
-                'lastname' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'phone' => ['required', 'string', 'max:10', 'unique:users'],
+                
                 'password' => ['required', 'string'],
-                'license_number' => ['required', 'string', 'max:11'],
+                
             ]
         );
 
         $user = new User();
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
+        $user->name = $request->name;
         $user->email = $request->email;
-        $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->license_number = $request->license_number;
-        // FIX: Location
-        $user->location_id = 1;
-        $user->subscribe = 0;
-        $user->occupation = $request->occupation;
-        $user->high_priority = 0;
         $user->save();
 
-        $token = $user->createToken('Road Side Assistant')->accessToken;
+        $token = $user->createToken('Electronic Prescription System')->accessToken;
 
         return success('Successfully registered', ['token' => $token]);
     }
@@ -54,7 +45,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = auth()->user();
-            $token = $user->createToken('Road Side Assistant')->accessToken;
+            $token = $user->createToken('Electronic Prescription System')->accessToken;
             return success('Successfully Login', ['token' => $token]);
         }
         return fail('These credentials do not match our records', null);
