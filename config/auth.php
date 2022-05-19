@@ -46,10 +46,6 @@ return [
             'provider' => 'admin_users'
         ],
 
-        'mechanic'=>[
-            'driver'=>'session',
-            'provider'=>'mechanics'
-        ],
 
         'api' => [
             'driver' => 'passport',
