@@ -18,6 +18,9 @@ Route::namespace('Api')->group(function(){
     Route::post('user-register','AuthController@userRegister');
     Route::post('user-login','AuthController@userLogin');
 
+    Route::post('doctor-register','AuthController@doctorRegister');
+    Route::post('doctor-login','AuthController@doctorLogin');
+
     Route::get('hello', function(){
         return 'hello';
     });
@@ -25,6 +28,11 @@ Route::namespace('Api')->group(function(){
     Route::middleware('auth:api')->group(function(){
         Route::get('profile','PageController@profile'); 
         Route::post('user-logout','AuthController@userLogout');
+    });
+
+    Route::middleware('auth:doctor-api')->group(function(){
+        Route::get('doctor-profile','PageController@doctorProfile'); 
+        Route::post('doctor-logout','AuthController@doctorLogout');
     });
 
 });
