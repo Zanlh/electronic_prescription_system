@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function trearement(){
         return $this->hasMany(treatement::class,'user_id','id');
     }
+
+    public function prescription(){
+        return $this->hasMany(Prescription::class,'user_id','id');
+    }
 }

@@ -35,11 +35,17 @@ Route::namespace('Api')->group(function(){
         Route::post('store-treatment','PageController@storeTreatment');
         Route::get('medicine','PageController@Medicine');
         Route::get('treatment','PageController@Treatment');
+
+        // prescription
+        Route::get('prescription','PageController@Prescription');
     });
 
     Route::middleware('auth:doctor-api')->group(function(){
         Route::get('doctor-profile','PageController@doctorProfile'); 
         Route::post('doctor-logout','AuthController@doctorLogout');
+
+        // Prescription
+        Route::POST('add-prescription','PageController@addPrescription');
     });
 
 });

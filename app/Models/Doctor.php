@@ -39,4 +39,8 @@ class Doctor extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function prescription(){
+        return $this->hasMany(Prescription::class,'doctor_id','id');
+    }
 }
