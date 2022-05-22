@@ -7,9 +7,10 @@ use App\Models\treatement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MedicineCollection;
 use App\Http\Resources\ProfileResource;
-use App\Http\Resources\MedicineResource;
 use App\Http\Resources\PrescriptionCollection;
+use App\Http\Resources\TreatementCollection;
 use App\Models\Prescription;
 
 class PageController extends Controller
@@ -23,15 +24,15 @@ class PageController extends Controller
 
     public function Medicine(){
         $medicines =  DB::table('medicines')->where('user_id',auth()->user()->id)->get();
-        // $data = new MedicineResource($medicines);
-        return success('success', $medicines);
+        $data = new MedicineCollection($medicines);
+        return success('success', $data);
 
     }
 
     public function Treatment(){
         $treatments = DB::table('treatements')->where('user_id',auth()->user()->id)->get();
-        // $data = new MedicineResource($medicines);
-        return success('success', $treatments);
+        $data = new TreatementCollection($treatments);
+        return success('success', $data);
 
     }
 
