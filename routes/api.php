@@ -28,6 +28,13 @@ Route::namespace('Api')->group(function(){
     Route::middleware('auth:api')->group(function(){
         Route::get('profile','PageController@profile'); 
         Route::post('user-logout','AuthController@userLogout');
+
+        // Medicine and Treatments plans Contra-Indication
+
+        Route::post('store-medicine','PageController@storeMedicine');
+        Route::post('store-treatment','PageController@storeTreatment');
+        Route::get('medicine','PageController@Medicine');
+        Route::get('treatment','PageController@Treatment');
     });
 
     Route::middleware('auth:doctor-api')->group(function(){
