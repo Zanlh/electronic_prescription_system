@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Models\medicine;
 use App\Models\treatement;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\MedicineCollection;
 use App\Http\Resources\ProfileResource;
-use App\Http\Resources\PrescriptionCollection;
+use App\Http\Resources\usersCollection;
+use App\Http\Resources\MedicineCollection;
 use App\Http\Resources\TreatementCollection;
-use App\Models\Prescription;
+use App\Http\Resources\PrescriptionCollection;
 
 class PageController extends Controller
 {
@@ -20,6 +22,13 @@ class PageController extends Controller
         $user = auth()->user();
         $data = new ProfileResource($user);
         return success('success', $data);
+    }
+
+    public function Users(){
+        $users = User::all();
+        $data = new usersCollection($users);
+        return success('success', $data);
+
     }
 
     public function Medicine(){

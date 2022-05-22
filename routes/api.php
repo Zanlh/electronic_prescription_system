@@ -46,6 +46,8 @@ Route::namespace('Api')->group(function(){
 
         // Prescription
         Route::POST('add-prescription','PageController@addPrescription');
+
+        Route::GET('users','Pagecontroller@Users');
     });
 
 });
