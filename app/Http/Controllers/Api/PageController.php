@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Models\Issue;
 use App\Models\medicine;
 use App\Models\treatement;
 use App\Models\Prescription;
@@ -13,10 +14,10 @@ use App\Http\Resources\DoctorResource;
 use App\Http\Resources\IssueCollection;
 use App\Http\Resources\ProfileResource;
 use App\Http\Resources\usersCollection;
+use App\Http\Resources\PharmacyResource;
 use App\Http\Resources\MedicineCollection;
 use App\Http\Resources\TreatementCollection;
 use App\Http\Resources\PrescriptionCollection;
-use App\Models\Issue;
 
 class PageController extends Controller
 {
@@ -31,6 +32,13 @@ class PageController extends Controller
     {
         $doctor =   $request->user('doctor-api');
         $data = new DoctorResource($doctor);
+        return success('success', $data);
+    }
+
+    public function pharmacyProfile(Request $request)
+    {
+        $pharmacy =   $request->user('pharmacy-api');
+        $data = new PharmacyResource($pharmacy);
         return success('success', $data);
     }
 
