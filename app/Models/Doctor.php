@@ -41,6 +41,6 @@ class Doctor extends Authenticatable
     ];
 
     public function prescription(){
-        return $this->hasMany(Prescription::class,'doctor_id','id');
+        return $this->hasMany(Issue::class,'doctor_id','id');
     }
 }

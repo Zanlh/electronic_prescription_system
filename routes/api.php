@@ -37,14 +37,16 @@ Route::namespace('Api')->group(function(){
         Route::get('treatment','PageController@Treatment');
 
         // prescription
-        Route::get('prescription','PageController@Prescription');
+        Route::get('prescription/{id}','PageController@Prescription');
+        Route::get('issue','PageController@Issue');
     });
 
     Route::middleware('auth:doctor-api')->group(function(){
-        Route::get('doctor-profile','PageController@doctorProfile'); 
+        Route::post('doctor-profile','PageController@doctorProfile'); 
         Route::post('doctor-logout','AuthController@doctorLogout');
 
         // Prescription
+        Route::POST('add-issue','PageController@addIssue');
         Route::POST('add-prescription','PageController@addPrescription');
 
         Route::GET('users','PageController@Users');

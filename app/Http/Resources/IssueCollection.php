@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class PrescriptionCollection extends ResourceCollection
+class IssueCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -17,15 +17,12 @@ class PrescriptionCollection extends ResourceCollection
     {
         return [
             'data'=>[
-                'prescriptions'=>$this->collection->map(function($data){
+                'issues'=>$this->collection->map(function($data){
                     return[
                         'id' => $data->id,
-                        'name' => $data->name,
-                        'dosage' => $data->dosage,
-                        'quantity' => $data->quantity,
-                        'advice' => $data->advice,
-                        'reaction' => $data->reaction,
-                        'issue_id' => $data->issue_id,
+                        'user_id' => $data->user_id,
+                        'doctor_id' => $data->doctor_id,
+                        'token' => $data->token,
                         'created_at'=>Carbon::parse($data->created_at)->format('Y-m-d H:i:s'),
                     ];
                 })
