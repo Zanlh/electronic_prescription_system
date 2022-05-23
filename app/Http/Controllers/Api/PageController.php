@@ -111,8 +111,8 @@ class PageController extends Controller
 
     }
 
-    public function Prescription($id){
-        $prescription = DB::table('prescriptions')->where('issue_id',$id)->get();
+    public function Prescription($token){
+        $prescription = DB::table('prescriptions')->where('issue_id',$token)->get();
         $data = new PrescriptionCollection($prescription);
         return success('success', $data);
     }
@@ -123,8 +123,8 @@ class PageController extends Controller
         return success('success', $data);
     }
 
-    public function userPrescription($id){
-        $prescription = DB::table('prescriptions')->where('issue_id',$id)->get();
+    public function userPrescription($token){
+        $prescription = DB::table('prescriptions')->where('issue_id',$token)->get();
         $data = new PrescriptionCollection($prescription);
         return success('success', $data);
     }

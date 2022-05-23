@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\medicine;
+use App\Models\Pharmacy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -107,6 +108,53 @@ class AuthController extends Controller
     public function doctorLogout(Request $request)
     {
         $request->user('doctor-api')->token()->revoke();
+        return success('Successfully Logout', null);
+    }
+
+    public function pharmacyRegister(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                
+                'password' => ['required', 'string'],
+                
+            ]
+        );
+
+        $pharmacy = new Pharmacy();
+        $pharmacy->name = $request->name;
+        $pharmacy->email = $request->email;
+        $pharmacy->password = Hash::make($request->password);
+        $pharmacy->save();
+
+        $token = $pharmacy->createToken('Electronic Prescription System')->accessToken;
+
+        return success('Successfully registered', ['token' => $token]);
+    }
+
+    public function pharmacyLogin(Request $request)
+    {
+
+        $request->validate(
+            [
+                'email' => ['required', 'string', 'email'],
+                'password' => ['required', 'string'],
+            ]
+        );
+
+        if (auth()->guard('pharmacy')->attempt(['email' => $request->email, 'password' => $request->password])) {
+             $pharmacy = auth()->guard('pharmacy')->user();
+            $token = $pharmacy->createToken('Electronic Prescription System')->accessToken;
+            return success('Successfully Login', ['token' => $token]);
+        }
+        return fail('These credentials do not match our records', null);
+    }
+
+    public function pharmacyLogout(Request $request)
+    {
+        $request->user('pharmacy-api')->token()->revoke();
         return success('Successfully Logout', null);
     }
 

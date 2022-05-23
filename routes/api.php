@@ -21,6 +21,10 @@ Route::namespace('Api')->group(function(){
     Route::post('doctor-register','AuthController@doctorRegister');
     Route::post('doctor-login','AuthController@doctorLogin');
 
+    Route::post('pharmacy-register','AuthController@pharmacyRegister');
+    Route::post('pharmacy-login','AuthController@pharmacyLogin');
+
+
     Route::get('hello', function(){
         return 'hello';
     });
@@ -57,6 +61,12 @@ Route::namespace('Api')->group(function(){
          // prescription
          Route::get('user-prescription/{id}','PageController@userPrescription');
          Route::get('user-issue/{id}','PageController@userIssue');
+    });
+
+    Route::middleware('auth:doctor-api')->group(function(){
+        Route::post('pharmacy-profile','PageController@pharmacyProfile'); 
+        Route::post('pharmacy-logout','AuthController@pharmacyLogout');
+
     });
 
 });

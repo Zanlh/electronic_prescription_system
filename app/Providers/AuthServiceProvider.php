@@ -30,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::tokensCan([
             'doctor' => 'doctor Type',
+            'pharmacy' => 'pharmacy Type',
         ]);
     }
 }
