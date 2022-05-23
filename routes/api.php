@@ -50,6 +50,13 @@ Route::namespace('Api')->group(function(){
         Route::POST('add-prescription','PageController@addPrescription');
 
         Route::GET('users','PageController@Users');
+        Route::GET('get-medicines/{id}','PageController@userMedicines');
+        Route::GET('get-treatments/{id}','PageController@userTreatments');
+        Route::GET('get-issues/{id}','PageController@userIssues');
+
+         // prescription
+         Route::get('user-prescription/{id}','PageController@userPrescription');
+         Route::get('user-issue/{id}','PageController@userIssue');
     });
 
 });

@@ -48,12 +48,22 @@ class PageController extends Controller
         return success('success', $data);
 
     }
+    public function userMedicines($id){
+        $medicines = DB::table('medicines')->where('user_id',$id)->get();
+        $data = new MedicineCollection($medicines);
+        return success('success', $data);
+    }
 
     public function Treatment(){
         $treatments = DB::table('treatements')->where('user_id',auth()->user()->id)->get();
         $data = new TreatementCollection($treatments);
         return success('success', $data);
 
+    }
+    public function userTreatments($id){
+        $treatments = DB::table('treatements')->where('user_id',$id)->get();
+        $data = new TreatementCollection($treatments);
+        return success('success', $data);
     }
 
     public function storeMedicine(Request $request){
@@ -109,6 +119,18 @@ class PageController extends Controller
 
     public function Issue(){
         $issue = DB::table('issues')->where('user_id',auth()->user()->id)->get();
+        $data = new IssueCollection($issue);
+        return success('success', $data);
+    }
+
+    public function userPrescription($id){
+        $prescription = DB::table('prescriptions')->where('issue_id',$id)->get();
+        $data = new PrescriptionCollection($prescription);
+        return success('success', $data);
+    }
+
+    public function userIssue($id){
+        $issue = DB::table('issues')->where('user_id',$id)->get();
         $data = new IssueCollection($issue);
         return success('success', $data);
     }
