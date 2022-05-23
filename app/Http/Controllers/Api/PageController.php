@@ -134,4 +134,16 @@ class PageController extends Controller
         $data = new IssueCollection($issue);
         return success('success', $data);
     }
+
+    public function pharmacyPrescription($token){
+        $prescription = DB::table('prescriptions')->where('issue_id',$token)->get();
+        $data = new PrescriptionCollection($prescription);
+        return success('success', $data);
+    }
+
+    public function pharmacyIssue(){
+        $issue = DB::table('issues')->get();
+        $data = new IssueCollection($issue);
+        return success('success', $data);
+    }
 }

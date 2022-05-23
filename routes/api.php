@@ -63,9 +63,12 @@ Route::namespace('Api')->group(function(){
          Route::get('user-issue/{id}','PageController@userIssue');
     });
 
-    Route::middleware('auth:doctor-api')->group(function(){
+    Route::middleware('auth:pharmacy-api')->group(function(){
         Route::post('pharmacy-profile','PageController@pharmacyProfile'); 
         Route::post('pharmacy-logout','AuthController@pharmacyLogout');
+
+        Route::get('pharmacy-prescription/{id}','PageController@pharmacyPrescription');
+        Route::get('pharmacy-issue','PageController@pharmacyIssue');
 
     });
 
